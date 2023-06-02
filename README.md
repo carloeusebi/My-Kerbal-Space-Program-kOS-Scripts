@@ -18,7 +18,7 @@ Scripts can be called by other scripts as functions, or manually by typing 'run 
 1 ASCENT.ks
   - This scripts is usally called by one of the boot scripts, it accepts an apoapsis and heading parameters. It stars a 10 seconds countdown and ignites the engines. It takes control of the staging and when a speed of 50m/s is reached starts the gravity turn controlling ship's pitch;
   	```
-    lock pitch TO ( 90 - ((90 / 100 ) * ((SHIP:APOAPSIS / targetAp ) * 100))). //MAIN GRAVITY TURN LOOP
+    lock pitch TO ( 90 - ((90 / 100 ) * ((SHIP:APOAPSIS / targetAp ) * 100)))
     ```
   - It prints on terminal current apoapsis height and T-;
   - When target apoapsis is reached it shuts off engines, it waits to reach 60km altitude to deploy eventual antennas and solar panels (must be configured pre-flight via Action Group 1 and 2), then calls the circularize script.
@@ -42,7 +42,7 @@ Scripts can be called by other scripts as functions, or manually by typing 'run 
   - This script calls manouver.ks passing the nextnode as a parameters; It is just a convenience to type less in the terminal.
 9. ORBITINJECTION.ks
   - This scripts create a manouver node to slow ship down allowing it to be captured by the body's gravity in a circular orbit. It takes current periapsis as orbit's height.
-10- SUICIDEBURN.ks
+10. SUICIDEBURN.ks
   - This script controls a suicide burn landing. It works mostly for no atmo low gravity bodies like Minmus or the Mun, where no parachute is needed;
   - It is able to land both Landers and Rovers, and chooses a different landing configuration based on the ship type;
   - When called it immediatly points ship retrograde and fires engines until it reaches a groundspeed of 0, letting the ship slowly falling towards the surface;
